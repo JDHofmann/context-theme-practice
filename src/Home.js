@@ -5,7 +5,7 @@ export default function Home(){
     const {user, setUser} = useContext(UserContext);
 
     return (
-        <div>
+        <div class="container">
             <h2>Home</h2>
             <p>{user}</p>
             { user ? <button onClick={() => setUser(null)}>logout</button> : <button onClick={() => setUser("Tom")}>login</button> }

@@ -5,7 +5,7 @@ export default function About(){
     const {user, setUser} = useContext(UserContext);
 
     return (
-        <div>
+        <div class="container">
             <h2>About</h2>
             <p>{user}</p>
             {user ? <button onClick={() => setUser(null)}>logout</button> : null}
