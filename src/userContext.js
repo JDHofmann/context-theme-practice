@@ -12,4 +12,4 @@ export const themes = {
 }
 
 export const UserContext = createContext(null);
-export const ThemeContext = createContext({theme: themes.light, toggleTheme: () => {}});
+export const ThemeContext = createContext(themes.light);
