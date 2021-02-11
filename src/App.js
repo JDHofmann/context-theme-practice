@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, {useState, useMemo } from 'react';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import Home from './Home';
 import About from './About';
@@ -7,8 +7,9 @@ import { UserContext } from "./userContext"
 
 export default function App(){
 
-  const [value, setValue] = useState("hello from context")
+  const [user, setUser] = useState(null)
 
+  const providerValue = useMemo(() => ({user, setUser}), [user, setUser])
   return (
     <BrowserRouter>
 
@@ -21,7 +22,7 @@ export default function App(){
             <Link to="/about">About</Link>
           </li>
         </ul>
-        <UserContext.Provider value={{value, setValue}}>
+        <UserContext.Provider value={providerValue}>
           <Route path="/" exact component={Home}/>
           <Route path="/about" component={About}/>
         </UserContext.Provider>
